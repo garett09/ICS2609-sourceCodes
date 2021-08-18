@@ -1,0 +1,51 @@
+body{
+    background-color: black;
+}
+#void{
+    height: 325px;
+    padding-top: 5px;
+    width: 32%;
+    margin: auto;
+    margin-top: 300px;
+    background-color: rgb(255, 255, 255);
+
+}
+#outer {
+    width: 600px;
+    height: 300px;
+    text-align: center;
+    background-color: rgb(37, 37, 37);
+    margin: auto;
+
+    padding-top: 20px;
+}
+#inner{
+    position: relative;
+    width: 75%;
+    height: 60%;
+    background-color: rgb(92, 92, 92);
+    margin: auto;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+input{
+    text-align: center;
+}
+
+.input{
+    width: 35%;
+    height: 20px;
+    border: none;
+    float: right;
+}
+
+h1{
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.904);
+    font-family: arial;
+    text-align: left;
+
+}
+

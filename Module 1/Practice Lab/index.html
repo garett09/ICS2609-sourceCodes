@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>MAIN - Login Validation Form</title>
+</head>
+<body>
+    <div id="void">
+    <div id="outer">
+        <div id="inner">
+            <form name = "myform">
+            <h1>Login 
+                <input name="username" 
+                id = "username"
+                class="input" 
+                type="text"
+                onchange="checkFilled()" 
+                placeholder="username" 
+                
+                />
+                <div id = "errfn"></div>
+               </h1></p>
+            <h1>Password 
+                <input id="password" 
+                class="input" 
+                type="password" 
+                onchange="checkFilled()" 
+                placeholder="password" 
+                />
+                <div id = "errpwd"></div>
+                </h1></p>
+            <h1>Confirm Password 
+                <input id="confirmPassword" 
+                class="input" type="password" 
+                onchange="checkFilled()" 
+                placeholder="re-enter password" 
+                />
+                <div id = "errconpwd"></div>
+                </h1></p>
+
+            <h1>Gender <select class="input"></h1></p>
+                <option value="blank" selected="selected">select</option>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="not sure">not sure</option>
+                
+            </select></p>
+
+            <h1>Email
+                <input id="email" 
+                class="input" 
+                type="text" 
+                onchange="checkFilled()" 
+                placeholder="email" 
+               />
+               <div id = "errema"></div>
+            <h1>
+                <input type="submit"
+                placeholder="Register"
+                value ="Register"
+                onclick="validate()"
+                /></h1></p>
+
+            </form>
+        </div>  
+
+     </div>
+    </div>
+
+    
+</body>
+</html>
