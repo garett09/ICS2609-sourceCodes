@@ -1,5 +1,6 @@
 function validate() {
-    
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
     if (myform.username.value === "eduardonacion") {
         document.getElementById('errfn').innerHTML = "this is valid name"
         document.getElementById('errfn').style.color = "green";
@@ -36,14 +37,25 @@ function validate() {
         document.getElementById('errconpwd').style.fontSize = "12px";
 
     }
+    if (myform.email.value.match(mailformat)){
+        document.getElementById('errema').innerHTML = "This email is valid"
+        document.getElementById('errema').style.color = "green";
+        document.getElementById('errema').style.fontSize = "12px";
+    }else{
+        document.getElementById('errema').innerHTML = "This email is invalid"
+        document.getElementById('errema').style.color = "red";
+        document.getElementById('errema').style.fontSize = "12px";
+    }
 
-    
-}
+  }
+
+
 function checkFilled() {
     const username = document.getElementById("username");
     const pass = document.getElementById("password");
     const cpass = document.getElementById("confirmPassword");
     const email = document.getElementById("email");
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     if (username.value === "eduardonacion") {
         username.style.backgroundColor = "rgb(214, 243, 168)";
@@ -63,8 +75,11 @@ function checkFilled() {
     else{
         cpass.style.backgroundColor = "rgb(236, 163, 163)";
     }
-    if (email.value === "") {
+    if (email.value.match(mailformat)) {
         email.style.backgroundColor = "rgb(214, 243, 168)";
+    }
+    else{
+        email.style.backgroundColor = "rgb(236, 163, 163)";
     }
 
 }
