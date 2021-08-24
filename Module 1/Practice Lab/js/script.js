@@ -1,5 +1,5 @@
 function validate() {
-  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (myform.username.value === "eduardonacion") {
     document.getElementById("errfn").innerHTML = "this is valid name";
