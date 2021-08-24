@@ -1,56 +1,52 @@
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
-#void{
-    height: 340px;
-    padding: 5px;
-    width: 600px;
-    margin: auto;
-    margin-top: 300px;
-    background-color: rgb(255, 255, 255);
-
+#void {
+  height: 340px;
+  padding: 5px;
+  width: 600px;
+  margin: auto;
+  margin-top: 300px;
+  background-color: rgb(255, 255, 255);
 }
 #outer {
-    width: 600px;
-    height: 320px;
-    text-align: center;
-    background-color: rgb(37, 37, 37);
-    margin: auto;
+  width: 600px;
+  height: 320px;
+  text-align: center;
+  background-color: rgb(37, 37, 37);
+  margin: auto;
 
-    padding-top: 20px;
+  padding-top: 20px;
 }
-#inner{
-    position: relative;
-    width: 75%;
-    height: 62%;
-    background-color: rgb(92, 92, 92);
-    margin: auto;
-    padding-right: 50px;
-    padding-left: 50px;
-    padding-top: 20px;
-    padding-bottom: 80px;
+#inner {
+  position: relative;
+  width: 75%;
+  height: 62%;
+  background-color: rgb(92, 92, 92);
+  margin: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 80px;
 }
-input{
-    text-align: center;
-}
-
-.input{
-    width: 35%;
-    height: 20px;
-    border: none;
-    float: right;
+input {
+  text-align: center;
 }
 
-h1{
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.904);
-    font-family: arial;
-    text-align: left;
-
-}
-#textbox{
-    float: left;
-    text-align: left;
-
+.input {
+  width: 35%;
+  height: 20px;
+  border: none;
+  float: right;
 }
 
+h1 {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.904);
+  font-family: arial;
+  text-align: left;
+}
+#textbox {
+  float: left;
+  text-align: left;
+}
