@@ -1,4 +1,4 @@
-# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+
 tasks:
   - init: echo 'init script' # runs during prebuild
     command: echo 'start script'
@@ -7,3 +7,26 @@ tasks:
 ports:
   - port: 3000
     onOpen: open-preview
+
+vscode:
+  extensions:
+    - teamhub.teamhub
+    - hookyqr.beautify
+    - hansuxdev.bootstrap5-snippets
+    - genuitecllc.codetogether
+    - dbaeumer.vscode-eslint
+    - donjayamanne.githistory
+    - github.vscode-pull-request-github
+    - eamodio.gitlens
+    - golang.go
+    - ecmel.vscode-html-css
+    - abusaidm.html-snippets
+    - dbaeumer.jshint
+    - redhat.java
+    - ritwickdey.liveserver
+    - equinusocio.vsc-material-theme-icons
+    - esbenp.prettier-vscode
+    - ms-python.python
+    - wakatime.vscode-wakatime
+    - syler.sass-indented
+    - redhat.vscode-xml
