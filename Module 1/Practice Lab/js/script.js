@@ -100,6 +100,6 @@ if ( user  === "eduardonacion" && password === "okie" && confirmPassword === "ok
 let user = document.getElementById("username").value;
 let password = document.getElementById("password").value;
 let rePassword = document.getElementById("confirmPassword").value;
-let email = document.getElementById("email").value;
+let bdnendndemail = document.getElementById("email").value;
  
 */
