@@ -40,7 +40,7 @@ class phlStatsbro {
 
 let covidPHL4 = new phlStatsbro(123123, 21312312, 123123);
 
-let covidPHL5 = new function (){
+let covidPHL5 = new function () {
     this.totalCases = 170000;
     this.totalRecovered = 2392332;
     this.totalDeaths = 4234234;
