@@ -18,16 +18,5 @@ let filesAsynch = fs.readdir("./temp", (e, files) => {
     }
     else {
         console.log("Directory is not exsiting....")
-    }   
+    }
 });
-
-//OS MODULE
-
-const os = require ('os');
-let totalMem = os.totalmem;
-let freeMem = os.freemem;
-let usedMem = totalMem - freeMem;
-
-console.log(`Total memory will be ${totalMem} and used memory is ${usedMem}`)
-
-
