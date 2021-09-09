@@ -1,5 +1,4 @@
-//TimeInterval
+// TimeInterval
 setTimeout(() => {
-    console.log("hello world im so handsome ty ty");
-
+  console.log("hello world im so handsome ty ty");
 }, 10000);
