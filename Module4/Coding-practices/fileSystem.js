@@ -1,22 +1,21 @@
-//FILE SYSTEM MODULE
+// FILE SYSTEM MODULE
 
-const fs = require('fs');
+const fs = require("fs");
 
-//sync call
+// sync call
 try {
-    let files = fs.readdirSync("./files")
-    console.log(files)
+  const files = fs.readdirSync("./files");
+  console.log(files);
 } catch (e) {
-    console.log("Directory does not exist")
+  console.log("Directory does not exist");
 }
 
-//asynch call
+// asynch call
 
-let filesAsynch = fs.readdir("./temp", (e, files) => {
-    if (!e) {
-        console.log(files)
-    }
-    else {
-        console.log("Directory is not exsiting....")
-    }
+fs.readdir("./temp", (e, files) => {
+  if (!e) {
+    console.log(files);
+  } else {
+    console.log("Directory is not exsiting....");
+  }
 });
