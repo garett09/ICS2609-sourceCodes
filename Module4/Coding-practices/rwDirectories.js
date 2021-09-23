@@ -17,3 +17,8 @@ try {
 } catch (e) {
   console.log("Directory does not exist.");
 }
+
+// asynchronous calls
+
+const afs = require ('fs');
+afs.mkdir('./file')

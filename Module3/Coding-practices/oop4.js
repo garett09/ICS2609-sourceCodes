@@ -43,7 +43,9 @@ p1.setAge(21);
 let p2 = new Student("Eduardo Nacion", 18);
 console.log(`The student is ${p1.getName()} and his age is ${p1.getAge()}`)
 
-console.log(`The student is ${p2.getName()} and his age is ${p2.getAge()}`)
+let sdf = console.log(`The student is ${p2.getName()} and his age is ${p2.getAge()}`)
+console.log(sdf)
+
 
 let p3 = new ISStudent("Annie Icban", 18, "ICS2609")
 console.log(`${p3.getName()} is taking ${p3.getPsubject()}`)

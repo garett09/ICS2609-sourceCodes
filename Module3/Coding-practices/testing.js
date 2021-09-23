@@ -15,9 +15,12 @@ try {
     console.log("The command did not work.");
 }
 
+var kobe = displayInfo.bind(android8);
+console.log(kobe("August"))
+
 //tutorial
 var obj = { num: 2 }
-var obj2 = {num:5}
+var obj2 = { num: 5 }
 
 var addToThis = function (a, b, c) {
     return this.num + a + b + c;
@@ -34,5 +37,5 @@ console.log(addToThis.apply(obj, array));
 var bound = addToThis.bind(obj);
 
 
-console.log(bound(1,2,3))
+console.log(bound(1, 2, 3))
 
