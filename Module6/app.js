@@ -102,14 +102,16 @@ app.get("/delete-student", (req, res) => {
 //joint tables
 
 app.get("/join-student", (req, res) => {
-    let sql = "SELECT FROM student WHERE AS student.id, student.fname, student.lname, section.code, section.course"
-    "INNER JOIN section" +
-        "ON student.secid = section.secid";
+    let sql = "SELECT student.id, student.fname, student.lname, section.code, section.course" +
+    " FROM student" +
+    " INNER JOIN section" +
+    " ON student.secid = section.secid";
     con.query(sql, (err, result) => {
         if (!err) {
             res.send(result);
         } else {
             res.send("failed to select student table");
+            throw err;
         }
     });
 });
