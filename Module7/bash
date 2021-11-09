@@ -1,0 +1,464 @@
+> show collections
+mamamo
+> db.mamamo.insert({fname: "Adrian", lname: "Sian", section: "3ISA"})
+WriteResult({ "nInserted" : 1 })
+> db.mamamo.insert({fname: "Edrian", lname: "Xian", section: "3ISA"})
+WriteResult({ "nInserted" : 1 })
+> db.mamamo.find()
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Adrian", "lname" : "Sian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8a5d87da36bd3d41aa76"), "fname" : "Edrian", "lname" : "Xian", "section" : "3ISA" }
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Adrian",
+        "lname" : "Sian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+> db.mamamo.insert({fname: "Catherine", lname:"Fernandez", address:{street: "Kobe street", city: "mamamo"}})
+WriteResult({ "nInserted" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Adrian",
+        "lname" : "Sian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+> db.mamamo.insert({fname: "Gloria", lname:"Fernandez", hobbies: {"basketball", "volleyball"}})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:76
+> db.mamamo.insert({fname: "Gloria", lname:"Fernandez", hobbies: ["basketball", "volleyball"]})
+WriteResult({ "nInserted" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Adrian",
+        "lname" : "Sian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.students.find({fname: "Cahterine"})
+> db.students.find({fname: "Catherine"})
+> db.mamamo.find({fname: "Catherine"})
+{ "_id" : ObjectId("618a8bbf87da36bd3d41aa77"), "fname" : "Catherine", "lname" : "Fernandez", "address" : { "street" : "Kobe street", "city" : "mamamo" } }
+> db.mamamo.find({$or:[{fname: "Catherine"}, {fname:"Adrian"}]})
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Adrian", "lname" : "Sian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8bbf87da36bd3d41aa77"), "fname" : "Catherine", "lname" : "Fernandez", "address" : { "street" : "Kobe street", "city" : "mamamo" } }
+> db.mamamo.find({age:{$gt:20}})
+> db.mamamo.find({age:{$gt:21}})
+> db.mamamo.find().sort({fname:1})
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Adrian", "lname" : "Sian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8bbf87da36bd3d41aa77"), "fname" : "Catherine", "lname" : "Fernandez", "address" : { "street" : "Kobe street", "city" : "mamamo" } }
+{ "_id" : ObjectId("618a8a5d87da36bd3d41aa76"), "fname" : "Edrian", "lname" : "Xian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8c2587da36bd3d41aa78"), "fname" : "Gloria", "lname" : "Fernandez", "hobbies" : [ "basketball", "volleyball" ] }
+> db.mamamo.find().sort({fname:-1})
+{ "_id" : ObjectId("618a8c2587da36bd3d41aa78"), "fname" : "Gloria", "lname" : "Fernandez", "hobbies" : [ "basketball", "volleyball" ] }
+{ "_id" : ObjectId("618a8a5d87da36bd3d41aa76"), "fname" : "Edrian", "lname" : "Xian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8bbf87da36bd3d41aa77"), "fname" : "Catherine", "lname" : "Fernandez", "address" : { "street" : "Kobe street", "city" : "mamamo" } }
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Adrian", "lname" : "Sian", "section" : "3ISA" }
+> db.mamamo.find().limit(2)
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Adrian", "lname" : "Sian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8a5d87da36bd3d41aa76"), "fname" : "Edrian", "lname" : "Xian", "section" : "3ISA" }
+> db.mamamo.find().forEach((doc)=>print("Name: " + doc.fname))
+Name: Adrian
+Name: Edrian
+Name: Catherine
+Name: Gloria
+> db.mamamo.update({fname:"Adrian"}, {fname: "Aleeza", lname: "Sian", age: 69})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.find()
+uncaught exception: TypeError: db.find is not a function :
+@(shell):1:1
+> db.mamamo.find()
+{ "_id" : ObjectId("618a8a5187da36bd3d41aa75"), "fname" : "Aleeza", "lname" : "Sian", "age" : 69 }
+{ "_id" : ObjectId("618a8a5d87da36bd3d41aa76"), "fname" : "Edrian", "lname" : "Xian", "section" : "3ISA" }
+{ "_id" : ObjectId("618a8bbf87da36bd3d41aa77"), "fname" : "Catherine", "lname" : "Fernandez", "address" : { "street" : "Kobe street", "city" : "mamamo" } }
+{ "_id" : ObjectId("618a8c2587da36bd3d41aa78"), "fname" : "Gloria", "lname" : "Fernandez", "hobbies" : [ "basketball", "volleyball" ] }
+> db.mamamo.update({fname:"Aleeza"}, {$set:{section:"3ISA"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 69,
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.mamamo.update({fname:"Aleeza"}, {$set:{section:"4ISA"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 69,
+        "section" : "4ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.mamamo.update({fname:"Aleeza"}, {$inc:{age:5}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74,
+        "section" : "4ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74,
+        "section" : "4ISA"
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.mamamo.update({fname:"Aleeza"}, {$unset:{section:1}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+> db.mamamo.update({fname:"Alejandro"},{fname:"Alejandro", lname: "Sian", age::11})
+uncaught exception: SyntaxError: expected expression, got ':' :
+@(shell):1:76
+> db.mamamo.update({fname:"Alejandro"},{fname:"Alejandro", lname: "Sian", age:11})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.mamamo.update({fname:"Alejandro"},{fname:"Alejandro", lname: "Sian", age:11}, {upsertLtrue})
+uncaught exception: ReferenceError: upsertLtrue is not defined :
+@(shell):1:83
+> db.mamamo.update({fname:"Alejandro"},{fname:"Alejandro", lname: "Sian", age:11}, {upsert:true})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 1,
+        "nModified" : 0,
+        "_id" : ObjectId("618a90efbe35933c3c87a628")
+})
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+{
+        "_id" : ObjectId("618a90efbe35933c3c87a628"),
+        "fname" : "Alejandro",
+        "lname" : "Sian",
+        "age" : 11
+}
+> db.mamamo.update({fname:"Alejandro"},{$rename:{"lname":"surname:"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+{
+        "_id" : ObjectId("618a90efbe35933c3c87a628"),
+        "fname" : "Alejandro",
+        "age" : 11,
+        "surname:" : "Sian"
+}
+> db.students.remove("fname: "Alejandro")
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:28
+> db.students.remove("fname": "Alejandro")
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:26
+> db.students.remove({fname: "Alejandro"})
+WriteResult({ "nRemoved" : 0 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74
+}
+{
+        "_id" : ObjectId("618a8a5d87da36bd3d41aa76"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "3ISA"
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+{
+        "_id" : ObjectId("618a90efbe35933c3c87a628"),
+        "fname" : "Alejandro",
+        "age" : 11,
+        "surname:" : "Sian"
+}
+> db.mamamo.remove({fname: "Alejandro"})
+WriteResult({ "nRemoved" : 1 })
+> db.mamamo.remove({fname: "Alejandrodb.mamamo.insert({fname: "Edrian", lname: "Xian", section: "3ISA"})"})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:61
+> db.mamamo.insert({fname: "Edrian", lname: "Xian", section: "4ISA"})
+WriteResult({ "nInserted" : 1 })
+> db.mamamo.remove({fname:"Edrian"},{justOne:true})
+WriteResult({ "nRemoved" : 1 })
+> db.mamamo.find().pretty()
+{
+        "_id" : ObjectId("618a8a5187da36bd3d41aa75"),
+        "fname" : "Aleeza",
+        "lname" : "Sian",
+        "age" : 74
+}
+{
+        "_id" : ObjectId("618a8bbf87da36bd3d41aa77"),
+        "fname" : "Catherine",
+        "lname" : "Fernandez",
+        "address" : {
+                "street" : "Kobe street",
+                "city" : "mamamo"
+        }
+}
+{
+        "_id" : ObjectId("618a8c2587da36bd3d41aa78"),
+        "fname" : "Gloria",
+        "lname" : "Fernandez",
+        "hobbies" : [
+                "basketball",
+                "volleyball"
+        ]
+}
+{
+        "_id" : ObjectId("618a91bc87da36bd3d41aa79"),
+        "fname" : "Edrian",
+        "lname" : "Xian",
+        "section" : "4ISA"
+}
+> db.mamamo.insert({_id:123456, fname: "Garett", lname: "Xean", age:31})
+WriteResult({ "nInserted" : 1 })
